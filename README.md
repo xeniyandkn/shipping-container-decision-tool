@@ -1,4 +1,3 @@
-## Rogo Front End Interview
 ### Getting Started
 
 First, run the development server:
