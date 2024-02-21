@@ -1,0 +1,28 @@
+{
+"count": 1,
+"next": null,
+"previous":  null,
+"results": [
+    {
+      "uid": 1,
+      "name": "first",
+      "origin": "Source A",
+      "destination": "Destination X",
+      "contents": ["Item 1", "Item 2"],
+      "priority": 3,
+      "arrivalTime": 1645293600,
+      "status": "In Transit"
+    },
+    {
+      "uid": 2,
+      "name": "second",
+      "origin": "Source B",
+      "destination": "Destination Y",
+      "contents": ["Item 3", "Item 4"],
+      "priority": 2,
+      "arrivalTime": 1645286400,
+      "status": "Delivered"
+    }
+  ]
+}
+  
