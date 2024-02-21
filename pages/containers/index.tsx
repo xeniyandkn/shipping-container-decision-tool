@@ -1,55 +1,45 @@
 
 import {
-  Box,
+  Box
 } from "@mui/material";
-import { useState, useEffect } from "react";
-import PropTypes from 'prop-types';
-import { useQueryClient } from '@tanstack/react-query';
+import {useEffect, useState } from "react";
 import ContainerList from 'src/components/Container/ContainerList';
-import { ContainerResponse } from 'src/types'
-import styles from "./Container.module.css";
+import { ContainerData } from 'src/types'
 import { containerQueryService, useContainerData } from "src/services/useContainerData";
 
-function ContainerHome({ initialResponse }: {
-  initialResponse: ContainerResponse
-}) {
-  const { containers } = useContainerData();
-  const queryClient = useQueryClient();
+ function ContainerHome() {
+  const [containers, setContainers] = useState<Array<ContainerData>>([]);
 
-  console.log("containers", containers);
-  
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    queryClient.setQueryData(['containers', { page: 1 }], initialResponse);
-  }, [initialResponse]);
+    const fetchData = async () => {
+      try {
+        const { containers } = await useContainerData();
+        setContainers(containers);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching container data:', error);
+        // Handle error state
+      }
+    };
 
+    fetchData();
+  }, []); // Empty dependency array ensures the effect runs only once
+
+    // Render loading state if data is still being fetched
+    if (loading) {
+      return <div>Loading...</div>;
+    }
   return (
-    <Box className={styles.container}>
-   
-
+    <Box>
         <ContainerList containers={containers} />
     </Box>
   );
 }
 
-ContainerHome.propTypes = {
-  initialResponse: PropTypes.shape({
-    count: PropTypes.number.isRequired,
-    next: PropTypes.string,
-    previous: PropTypes.string,
-    results: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-        url: PropTypes.string,
-      })
-    )
-  })
-};
-
 export const getServerSideProps = async () => {
   const response = await containerQueryService.fetch();
-  console.log("response", response);
-  
   return {
     props: {
       initialResponse: response

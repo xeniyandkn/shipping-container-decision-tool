@@ -1,15 +1,9 @@
 import BaseAPI from "./BaseApi";
-import { ContainerResponse, ContainerData } from "src/types";
+import { ContainerResponse } from "src/types";
 import containers from "containers.json";
-export type listContainersRequestParams = {
-}
-
-export type FetchSingleContainerProps = {
-  containerName: string
-}
 
 class ContainerApi extends BaseAPI {
-  public listContainers = async (queryParams: listContainersRequestParams): Promise<ContainerResponse> => {
+  public listContainers = async (): Promise<ContainerResponse> => {
     // const response = await this.request({
     //   method: 'GET',
     //   path: '/containers',

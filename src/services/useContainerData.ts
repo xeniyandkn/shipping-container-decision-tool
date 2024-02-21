@@ -1,12 +1,11 @@
 
-import { ContainerData, ContainerResponse } from "src/types/container";
+import { ContainerData } from "src/types/container";
 import { containerApi } from "./api";
-import { useQueries } from "@tanstack/react-query";
 
 export const containerQueryService = ({
-  fetch: async (): Promise<Array<ContainerData>> => {
+  fetch:  async (): Promise<Array<ContainerData>> => {
     try {
-      const containers = await containerApi.listContainers({});
+      const containers = await containerApi.listContainers();
       return containers.results;
     } catch (error) {
       throw new Error(
@@ -19,17 +18,12 @@ export const containerQueryService = ({
   },
 })
 
-export const useContainerData = (): {
-  containers: Array<ContainerData>
-} => {
-  const queryResults = useQueries({
-    queries: [{ queryFn: async () => await containerQueryService.fetch() }],
-  });
-
-  const containers = queryResults.map(query => query.data) as unknown as Array<ContainerData>;
-
+export const useContainerData =  async (): Promise<{
+  containers: Array<ContainerData>;
+}> => {
+  const queryResults = await  containerQueryService.fetch();
   return {
-    containers
+    containers: queryResults
   };
 };
 
