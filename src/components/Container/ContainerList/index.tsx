@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { ContainerData } from 'src/types';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -158,29 +157,11 @@ export const ContainerList = ({ containers }: {
             <Switch   
               checked={checkedPriority}
               onChange={handleChangePriority}
-              inputProps={{ 'aria-label': 'controlled' }} />} label="Highlight important contents priority" />
+              inputProps={{ 'aria-label': 'controlled' }} />} label="Highlight Important Contents" />
         </FormGroup>
       </Paper>
     </Box>
   )
 }
-
-ContainerList.propTypes = {
-  containers: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      uid: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-      ]).isRequired,
-      origin: PropTypes.oneOfType([
-        PropTypes.string,
-      ]).isRequired,
-      destination: PropTypes.oneOfType([
-        PropTypes.string,
-      ]).isRequired,
-    })
-  )
-};
 
 export default ContainerList;
