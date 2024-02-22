@@ -1,4 +1,4 @@
-# The assignment
+# Shipping Container Decision Tool
 
 For the assignment, the consider the following questions:
 
@@ -18,6 +18,8 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+<img width="1551" alt="Screenshot 2024-02-22 at 3 36 11 PM" src="https://github.com/xeniyandkn/shipping-container-decision-tool/assets/93728505/868cff19-afb5-41c3-b477-a0eb4a097bfe">
 
 # Using
 
