@@ -1,5 +1,3 @@
-### Getting Started
-
 # The assignment
 
 For the assignment, the consider the following questions:
@@ -23,10 +21,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # Using
 
-MUI-x Data Grid table https://mui.com/x/react-data-grid/layout/
+- MUI-x Data Grid table https://mui.com/x/react-data-grid/layout/
+- 
+-
 
 # For future considerations
 
 - MUI-X Data Grid Table -  row editing
 - [i18n](https://www.i18next.com/) for translations
+-
+-
 -
