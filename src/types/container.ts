@@ -1,5 +1,5 @@
 export type ContainerData = {
-  uid: number;
+  uid: string;
   name: string;
   origin: string;
   destination: string;

@@ -4,124 +4,124 @@
 "previous":  null,
 "results": [
     {
-      "uid": 1,
+      "uid": "3F7G9H2J",
       "name": "first",
       "origin": "Istanbul",
       "destination": "Vancouver",
       "contents": ["Masks", "Vaccines"],
       "priority": 1,
       "arrivalTime": 1645293600,
-      "status": "In Transit"
+      "status": "Important"
     },
     {
-      "uid": 2,
+      "uid": "A1K5B3C7",
       "name": "second",
       "origin": "Paris",
       "destination": "Hong Kong",
       "contents": ["Pens", "Pencils"],
       "priority": 3,
       "arrivalTime": 1645286400,
-      "status": "Delivered"
+      "status": "Filled"
     },
     {
-      "uid": 3,
+      "uid": "V6W4X7Z9",
       "name": "third",
       "origin": "New York",
       "destination": "Tokyo",
       "contents": ["Books", "Laptops"],
       "priority": 2,
       "arrivalTime": 1645336800,
-      "status": "In Transit"
+      "status": "Open"
     },
     {
-      "uid": 4,
+      "uid": "D8L6E2F4",
       "name": "fourth",
       "origin": "London",
       "destination": "Sydney",
       "contents": ["Clothing", "Shoes"],
       "priority": 1,
       "arrivalTime": 1645308000,
-      "status": "In Transit"
+      "status": "Open"
     },
     {
-      "uid": 5,
+      "uid": "M9N7P4Q5",
       "name": "fifth",
       "origin": "Tokyo",
       "destination": "Los Angeles",
       "contents": ["Toys", "Games"],
       "priority": 3,
       "arrivalTime": 1645315200,
-      "status": "Delivered"
+      "status": "Filled"
     },
     {
-      "uid": 6,
+      "uid": "V6W4X7Y8",
       "name": "sixth",
       "origin": "Berlin",
       "destination": "Dubai",
       "contents": ["Electronics", "Gadgets"],
       "priority": 2,
       "arrivalTime": 1645322400,
-      "status": "In Transit"
+      "status": "Open"
     },
     {
-      "uid": 7,
+      "uid": "V6W4X7Y3",
       "name": "seventh",
       "origin": "Moscow",
       "destination": "Singapore",
       "contents": ["Perfumes", "Cosmetics"],
       "priority": 1,
       "arrivalTime": 1645344000,
-      "status": "In Transit"
+      "status": "Open"
     },
     {
-      "uid": 8,
+      "uid": "R3S1T9U2",
       "name": "eighth",
       "origin": "Madrid",
       "destination": "Seoul",
       "contents": ["Art supplies", "Crafts"],
       "priority": 3,
       "arrivalTime": 1645351200,
-      "status": "Delivered"
+      "status": "PartiallyFilled"
     },
     {
-      "uid": 9,
+      "uid": "V6W4X7Y9",
       "name": "ninth",
       "origin": "Singapore",
       "destination": "New Delhi",
       "contents": ["Medicines", "Medical equipment"],
       "priority": 2,
       "arrivalTime": 1645358400,
-      "status": "In Transit"
+      "status": "Important"
     },
     {
-      "uid": 10,
+      "uid": "R3S1T8Y7",
       "name": "tenth",
       "origin": "Los Angeles",
       "destination": "Shanghai",
       "contents": ["Furniture", "Home appliances"],
       "priority": 1,
       "arrivalTime": 1645365600,
-      "status": "In Transit"
+      "status": "Open"
     },
     {
-      "uid": 11,
+      "uid": "R3S1T8U2",
       "name": "eleventh",
       "origin": "Sydney",
       "destination": "Toronto",
       "contents": ["Food items", "Snacks"],
       "priority": 3,
       "arrivalTime": 1645372800,
-      "status": "Delivered"
+      "status": "Important"
     },
     {
-      "uid": 12,
+      "uid": "R3S1T8I2",
       "name": "twelfth",
       "origin": "Dubai",
       "destination": "Rio de Janeiro",
       "contents": ["Sports equipment", "Fitness gear"],
       "priority": 2,
       "arrivalTime": 1645380000,
-      "status": "In Transit"
+      "status": "Open"
     }
     
   ]

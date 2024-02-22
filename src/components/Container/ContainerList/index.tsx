@@ -4,9 +4,12 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridToolbar } from '@mui/x-data-grid';
+import { StyledDataGrid } from '@/styles/StyledDataGrid';
+import { FormControlLabel, FormGroup, Switch, Typography } from '@mui/material';
+import { useDemoData } from '@mui/x-data-grid-generator';
 interface Data {
-  id: number;
+  id: string;
   origin: string;
   priority: number;
   name: string;
@@ -20,9 +23,10 @@ interface Data {
 export const ContainerList = ({ containers }: {
   containers: Array<ContainerData>
 }) => {
+  const [checkedPriority, setCheckedPriority] = React.useState(true);
 
-  function createData(
-    id: number,
+  const  createData = (
+    id: string,
     name: string,
     priority: number,
     origin: string,
@@ -31,7 +35,7 @@ export const ContainerList = ({ containers }: {
     arrivalTime: number,
     status: string,
     action: string,
-  ): Data {
+  ): Data => {
     return {
       id,
       name,
@@ -62,8 +66,6 @@ export const ContainerList = ({ containers }: {
        )
   ));
 
-  
-  
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 100 },
     { field: 'name', headerName: ' Name', width: 200 },
@@ -82,6 +84,7 @@ export const ContainerList = ({ containers }: {
       field: 'contents',
       headerName: 'Contents',
       width: 200,
+      sortable: false,
     },
     {
       field: 'arrivalTime',
@@ -99,23 +102,66 @@ export const ContainerList = ({ containers }: {
       width: 200,
     },
   ];
+
+  const demoData = {
+    rows: rows,
+    columns: columns
+  }
+
+  const { data } = useDemoData({
+    dataSet: 'Commodity',
+    rowLength: 100,
+  });
+
+  const handleChangePriority = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckedPriority(event.target.checked);
+  };
   
+  const gridProps = {
+    initialState: {
+      pagination: {
+        paginationModel: { page: 0, pageSize: 5 },
+      },
+    },
+    pageSizeOptions: [5, 10, 15],
+    checkboxSelection: true,
+    slots: { toolbar: GridToolbar }
+  };
+
+  const getRenderedComponent = () => {
+      if (checkedPriority) {
+        return (<StyledDataGrid
+          {...demoData}
+          {...gridProps}
+          getRowClassName={(params) => `super-app-theme--${params.row.status}`}
+        />)
+      } else {
+        return (
+          <DataGrid
+          {...demoData}
+          {...gridProps}
+          slots={{ toolbar: GridToolbar }}
+        />
+        )
+      }
+  }
+
   return (
     <Box sx={{ width: '100%', display: 'flex', justifyContent: "center", marginTop: "5rem" }}>
       <Paper sx={{ width: '90%', mb: 2 }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection
-      />
-  </Paper>
-  </Box>
+        <Typography variant="h3" gutterBottom>
+        Shipping Container Yard
+        </Typography>
+        {getRenderedComponent()}
+        <FormGroup>
+          <FormControlLabel control={
+            <Switch   
+              checked={checkedPriority}
+              onChange={handleChangePriority}
+              inputProps={{ 'aria-label': 'controlled' }} />} label="Highlight important contents priority" />
+        </FormGroup>
+      </Paper>
+    </Box>
   )
 }
 

@@ -21,7 +21,12 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-# Other
+# Using
 
-- i18n for translations
+MUI-x Data Grid table https://mui.com/x/react-data-grid/layout/
+
+# For future considerations
+
+- MUI-X Data Grid Table -  row editing
+- [i18n](https://www.i18next.com/) for translations
 -
