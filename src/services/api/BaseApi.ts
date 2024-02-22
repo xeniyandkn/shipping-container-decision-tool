@@ -1,23 +1,22 @@
-
 import {
   HTTPHeaders,
   ApiConfiguration,
   RequestOptions,
   HTTPMethod,
   HTTPQuery,
-} from 'src/types';
+} from "src/types";
 
 type FetchParams = {
   requestConfig: RequestConfig;
   url: string;
-}
+};
 
 type RequestConfig = {
-  body?: BodyInit,
+  body?: BodyInit;
   credentials?: RequestCredentials;
-  headers?: HTTPHeaders,
-  method: HTTPMethod
-}
+  headers?: HTTPHeaders;
+  method: HTTPMethod;
+};
 
 class BaseAPI {
   constructor(private apiConfiguration: ApiConfiguration = {}) {}
@@ -30,12 +29,12 @@ class BaseAPI {
     }
     const errorResponse = await response.json();
     throw errorResponse;
-  }
+  };
 
   private fetchApi = async (url: string, requestConfig: RequestConfig) =>
-    await fetch(url, requestConfig)
+    await fetch(url, requestConfig);
 
-  private toQueryString = (params: HTTPQuery, prefix: string = ''): string => {
+  private toQueryString = (params: HTTPQuery, prefix: string = ""): string => {
     return Object.keys(params)
       .map((key) => {
         const fullKey = prefix + (prefix.length ? `[${key}]` : key);
@@ -50,23 +49,24 @@ class BaseAPI {
           return this.toQueryString(value as HTTPQuery, fullKey);
         }
         return `${encodeURIComponent(fullKey)}=${encodeURIComponent(
-          String(value)
+          String(value),
         )}`;
       })
       .filter((part) => part.length > 0)
-      .join('&');
+      .join("&");
   };
 
   private createFetchParams = (options: RequestOptions): FetchParams => {
-    let url = (this.apiConfiguration.basePath || '') + options.path;
+    let url = (this.apiConfiguration.basePath || "") + options.path;
     if (options.query && Object.keys(options.query).length) {
-      url += '?' + this.toQueryString(options.query);
+      url += "?" + this.toQueryString(options.query);
     }
 
     const body = JSON.stringify(options.body);
-    const headers = Object.assign({},
+    const headers = Object.assign(
+      {},
       this.apiConfiguration.headers,
-      options.headers
+      options.headers,
     );
     const requestConfig = {
       body,

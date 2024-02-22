@@ -1,12 +1,12 @@
 export type HTTPHeaders = { [key: string]: string };
 
 export type HTTPMethod =
-  | 'GET'
-  | 'POST'
-  | 'PUT'
-  | 'PATCH'
-  | 'DELETE'
-  | 'OPTIONS';
+  | "GET"
+  | "POST"
+  | "PUT"
+  | "PATCH"
+  | "DELETE"
+  | "OPTIONS";
 
 export type HTTPQuery = {
   [key: string]:

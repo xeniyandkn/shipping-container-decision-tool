@@ -3,10 +3,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "npx prettier --write **/*.{ts,tsx,js,md}"
   },
   "dependencies": {
     "@mui/material": "^5.11.14",
+    "@mui/x-data-grid": "^6.19.4",
     "@tanstack/react-query": "^4.28.0",
     "@tanstack/react-query-devtools": "^4.28.0",
     "next": "latest",

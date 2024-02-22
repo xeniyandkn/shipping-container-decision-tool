@@ -5,8 +5,8 @@ export default function Home() {
 export const getServerSideProps = () => {
   return {
     redirect: {
-      destination: '/containers'
+      destination: "/containers",
     },
-    props: {}
-  }
-}
+    props: {},
+  };
+};

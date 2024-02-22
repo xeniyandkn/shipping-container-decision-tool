@@ -11,7 +11,7 @@ class ContainerApi extends BaseAPI {
     // });
     return containers;
     // return response.json();
-  }
+  };
 }
 
 export default ContainerApi;

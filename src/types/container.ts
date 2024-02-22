@@ -1,5 +1,3 @@
-
-
 export type ContainerData = {
   uid: number;
   name: string;
@@ -9,11 +7,11 @@ export type ContainerData = {
   priority: number;
   arrivalTime: number;
   status: string;
-}
+};
 
 export type ContainerResponse = {
   count: number;
   next: string | null;
   previous: string | null;
-  results: Array<ContainerData>
-}
+  results: Array<ContainerData>;
+};

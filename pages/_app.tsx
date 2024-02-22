@@ -1,15 +1,15 @@
-import type { AppProps } from 'next/app';
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import type { AppProps } from "next/app";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 2,
       useErrorBoundary: false,
-      refetchOnWindowFocus: false
-    }
-  }
+      refetchOnWindowFocus: false,
+    },
+  },
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -18,5 +18,5 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
-  )
+  );
 }
