@@ -2,11 +2,11 @@ import { ContainerData } from 'src/types';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-
-import { DataGrid, GridColDef, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import { StyledDataGrid } from '@/styles/StyledDataGrid';
 import { FormControlLabel, FormGroup, Switch, Typography } from '@mui/material';
 import { useDemoData } from '@mui/x-data-grid-generator';
+import { columns, gridProps } from './utils';
 interface Data {
   id: string;
   origin: string;
@@ -14,7 +14,7 @@ interface Data {
   name: string;
   destination: string;
   contents: Array<string>;
-  arrivalTime: number;
+  arrivalTime: Date;
   status: string;
   action: string;
 }
@@ -31,7 +31,7 @@ export const ContainerList = ({ containers }: {
     origin: string,
     destination: string,
     contents: Array<string>,
-    arrivalTime: number,
+    arrivalTime: Date,
     status: string,
     action: string,
   ): Data => {
@@ -48,10 +48,6 @@ export const ContainerList = ({ containers }: {
     };
   }
 
-  const unixTimeToDate = (unixTime: number): any =>{
-    return new Date(unixTime * 1000);
-}
-
   const rows = containers.map(container=> (
     createData(container.uid, 
       container.name, 
@@ -59,73 +55,23 @@ export const ContainerList = ({ containers }: {
        container.origin, 
        container.destination, 
        container.contents,
-       unixTimeToDate(container.arrivalTime),
+       new Date(container.arrivalTime * 1000),
        container.status,
        'Send report / Download',
        )
   ));
 
-  const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 100 },
-    { field: 'name', headerName: ' Name', width: 200 },
-    { field: 'priority', headerName: 'Priority', width: 100 },
-    {
-      field: 'origin',
-      headerName: 'Origin',
-      width: 200,
-    },
-    {
-      field: 'destination',
-      headerName: 'Destination',
-      width: 200,
-    },
-    {
-      field: 'contents',
-      headerName: 'Contents',
-      width: 200,
-      sortable: false,
-    },
-    {
-      field: 'arrivalTime',
-      headerName: 'Time of Arrival',
-      width: 300,
-    },
-    {
-      field: 'status',
-      headerName: 'Status',
-      width: 100,
-    },
-    {
-      field: 'action',
-      headerName: 'Action',
-      width: 200,
-    },
-  ];
-
   const demoData = {
     rows: rows,
     columns: columns
   }
+  
+
 
   const { data } = useDemoData({
     dataSet: 'Commodity',
     rowLength: 100,
   });
-
-  const handleChangePriority = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCheckedPriority(event.target.checked);
-  };
-  
-  const gridProps = {
-    initialState: {
-      pagination: {
-        paginationModel: { page: 0, pageSize: 5 },
-      },
-    },
-    pageSizeOptions: [5, 10, 15],
-    checkboxSelection: true,
-    slots: { toolbar: GridToolbar }
-  };
 
   const getRenderedComponent = () => {
       if (checkedPriority) {
@@ -137,9 +83,8 @@ export const ContainerList = ({ containers }: {
       } else {
         return (
           <DataGrid
-          {...demoData}
-          {...gridProps}
-          slots={{ toolbar: GridToolbar }}
+            {...demoData}
+            {...gridProps}
         />
         )
       }
@@ -156,7 +101,8 @@ export const ContainerList = ({ containers }: {
           <FormControlLabel control={
             <Switch   
               checked={checkedPriority}
-              onChange={handleChangePriority}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                setCheckedPriority(event.target.checked)}}
               inputProps={{ 'aria-label': 'controlled' }} />} label="Highlight Important Contents" />
         </FormGroup>
       </Paper>
