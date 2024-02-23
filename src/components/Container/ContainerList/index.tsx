@@ -58,7 +58,7 @@ export const ContainerList = ({ containers }: {
        container.contents,
        new Date(container.arrivalTime * 1000),
        container.status,
-       'Send report / Download',
+       'Send report',
        )
   ));
 
@@ -78,6 +78,7 @@ export const ContainerList = ({ containers }: {
       if (checkedPriority) {
         return (<StyledDataGrid
           {...demoData}
+          // {...data}
           {...gridProps}
           getRowClassName={(params) => `super-app-theme--${params.row.status}`}
         />)
@@ -85,6 +86,7 @@ export const ContainerList = ({ containers }: {
         return (
           <DataGrid
             {...demoData}
+            // {...data}
             {...gridProps}
         />
         )

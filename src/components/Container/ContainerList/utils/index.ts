@@ -2,7 +2,7 @@ import { GridColDef, GridToolbar } from "@mui/x-data-grid";
 
 export const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 100 },
-    { field: 'name', headerName: ' Name', width: 200 },
+    { field: 'name', headerName: ' Name', width: 100 },
     { field: 'priority', headerName: 'Priority', width: 100 },
     {
       field: 'origin',
