@@ -32,7 +32,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Using
 
-- [Next.js](https://nextjs.org/) React web development framework with server side rendering. Make sure that Node minimum version is 18.17 installed
+- [Next.js](https://nextjs.org/) React web development framework with server side rendering. 
+Make sure that Node minimum version is 18.17 installed
+- Typescript for stronger typing
 - [MUI Material UI](https://mui.com/)
 - [MUI-X Data Grid](https://mui.com/x/react-data-grid/layout/)
 - [TanStack Query](https://tanstack.com/query/latest) fetching, caching, synchronizing and updating server state
@@ -41,11 +43,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Evolving tools
 
 - [i18n](https://www.i18next.com/) for internationalization
-- Data Grid table row editiing
+- Data Grid table row editiing for editing dates and shipping container code identifiers
 - Date pickers
+- DTOs for transfering data between server / engine and the web application
+- Visualization tools like Plotly, Chart.js or Nivo to aid quicker decision-making
+- Map integration to plot the trajectory of the ship path with estimated delay / arrival times 
 
-
-## Evolving architecture using
+## Evolving FE architecture using
 
 - State management tool - React-redux, Mobx or React Context API to manage application state in a predictable manner.
 - Implementing authentication and authorization mechanisms (e.g., JWT, OAuth) ensures secure access to the application's features and data. This includes login/logout functionality, user registration, and role-based access control.
