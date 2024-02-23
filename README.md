@@ -36,9 +36,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Make sure that Node minimum version is 18.17 installed
 - Typescript for stronger typing
 - [MUI Material UI](https://mui.com/)
-- [MUI-X Data Grid](https://mui.com/x/react-data-grid/layout/)
+- [MUI-X Data Grid](https://mui.com/x/react-data-grid/layout/) and its out-of-the-box UI elements such as tooltips, labels, or color coding to emphasize the importance of containers carrying medical supplies
 - [TanStack Query](https://tanstack.com/query/latest) fetching, caching, synchronizing and updating server state
 - [Styled Components](https://styled-components.com/)
+- Linting using prettier
 
 ## Evolving tools
 
@@ -57,4 +58,4 @@ Make sure that Node minimum version is 18.17 installed
 - Implement unit tests, integration tests, and end-to-end tests to ensure the reliability and stability of the application. Tools like Jest, React Testing Library, and Cypress can be used for testing.
 - Set up CI/CD pipelines to automate the build, test, and deployment processes.
 - Integrate monitoring and analytics tools (e.g., Google Analytics, Sentry) to track application performance, detect errors, and gather insights into user behavior.
-- As well as component-based architecture, responsiveness, single page application, etc.
+- As well as component-based architecture, responsiveness, single page application (using React Router for client-side routing), etc.
