@@ -7,6 +7,7 @@ import { StyledDataGrid } from '@/styles/StyledDataGrid';
 import { FormControlLabel, FormGroup, Switch, Typography } from '@mui/material';
 import { useDemoData } from '@mui/x-data-grid-generator';
 import { columns, gridProps } from './utils';
+import styled from 'styled-components';
 interface Data {
   id: string;
   origin: string;
@@ -91,10 +92,10 @@ export const ContainerList = ({ containers }: {
   }
 
   return (
-    <Box sx={{ width: '100%', display: 'flex', justifyContent: "center", marginTop: "5rem" }}>
+    <StyledBox>
       <Paper sx={{ width: '90%', mb: 2 }}>
         <Typography variant="h3" gutterBottom>
-        Shipping Container Yard
+          Shipping Container Yard
         </Typography>
         {getRenderedComponent()}
         <FormGroup>
@@ -106,8 +107,16 @@ export const ContainerList = ({ containers }: {
               inputProps={{ 'aria-label': 'controlled' }} />} label="Highlight Important Contents" />
         </FormGroup>
       </Paper>
-    </Box>
+    </StyledBox>
   )
 }
 
 export default ContainerList;
+
+
+const StyledBox = styled(Box)`
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+`;
