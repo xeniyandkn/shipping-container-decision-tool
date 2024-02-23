@@ -21,14 +21,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # Using
 
+- Next.js React web development framework with server side rendering
+- MUI Material UI
 - MUI-x Data Grid table https://mui.com/x/react-data-grid/layout/
 - 
 -
 
 # For future considerations
 
-- MUI-X Data Grid Table -  row editing
-- [i18n](https://www.i18next.com/) for translations
--
--
--
+- [i18n](https://www.i18next.com/) for internationalization
+- State management tool - React-redux, Mobx or React Context API to manage application state in a predictable manner.
+- Implementing authentication and authorization mechanisms (e.g., JWT, OAuth) ensures secure access to the application's features and data. This includes login/logout functionality, user registration, and role-based access control.
+- The front-end communicates with the backend server via RESTful APIs to fetch data, submit requests, and perform CRUD operations. Axios or Fetch API can be used for making HTTP requests.
+- Implement unit tests, integration tests, and end-to-end tests to ensure the reliability and stability of the application. Tools like Jest, React Testing Library, and Cypress can be used for testing.
+- Set up CI/CD pipelines to automate the build, test, and deployment processes.
+- Integrate monitoring and analytics tools (e.g., Google Analytics, Sentry) to track application performance, detect errors, and gather insights into user behavior.
+- As well as component-based architecture, responsiveness, single page application, etc.
